@@ -99,7 +99,7 @@ class StubServerProtocol:
 
         # FIXME: maybe aioh2 should allow registering to connection_lost event
         # so we can find out when the connection get disconnected.
-        with await self._lock:
+        async with self._lock:
             client = await self.get_client()
 
         path = self.args.uri
